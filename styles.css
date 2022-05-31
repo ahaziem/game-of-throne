@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@800&display=swap");
+.character-card {
+  margin: 5vh 0px;
+  border: 1px solid grey;
+  height: 40vh;
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.character-card__image {
+  height: 20vh;
+  width: auto;
+}
+
+.character-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f1eaea;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "GOTR";
+  src: url("../assest/Game of Thrones.ttf");
+}
+.nav {
+  display: flex;
+  font-family: "Overpass", sans-serif;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 10vh;
+  width: 100%;
+  background-color: #870d0a;
+  color: white;
+}
+.nav__header {
+  font-family: "GOTR";
+}
+.nav__checkboxes {
+  display: flex;
+  justify-content: space-between;
+  width: 30vw;
+}/*# sourceMappingURL=styles.css.map */
