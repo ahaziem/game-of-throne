@@ -18,8 +18,7 @@ const checkedArray = [];
 // This is the map function.
 
 const createCards = (array) => {
-  const characterHTML = array
-    .map((character) => {
+  const characterHTML = array.map((character) => {
       return `
     <div class="character-card">
       <h1 class="character-card__name">${character.firstName} ${character.lastName}</h1>
