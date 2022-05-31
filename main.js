@@ -2,17 +2,21 @@
 
 import charactersArr from "./Data/data";
 
-//---------------------------Dom Elements-------------------------//
+//---------------------------DOM Elements-------------------------//
+// create the variable for the DOM elements
 const characterContainer = document.querySelector(".character-container");
 const searchInput = document.querySelector("#search");
 const checkboxes = document.querySelectorAll(".nav__checkbox");
 
 //---------------------------Global Variables-------------------------//
+// create a global variable for the array.
 const checkedArray = [];
 
 //---------------------------Functions-------------------------//
-// when creating an card using an array, you need to fo through the array and create a new array.
+// This the function for creating the card based on the Array
+// when creating an card using an array, you need to fo through the element in the array and create a new array.
 // This is the map function.
+
 const createCards = (array) => {
   const characterHTML = array
     .map((character) => {
@@ -27,26 +31,35 @@ const createCards = (array) => {
     })
     .join("");
 
+  // The join() is an array method returns an array as a string.
+
   return characterHTML;
 };
 
+// this is a variable for a search input
 const getSearchInput = (event) => {
   return event.target.value;
+  // event.target -> this returns the DOM element where you can retrieve any property that has a value.
 };
 
 const filterBySearch = (event) => {
+  // this variable for the search term based on the variable of the search term
   const searchTerm = getSearchInput(event);
 
+  // create a array for the filer Arr
   const filteredArray = charactersArr.filter((character) => {
     return (
+      // return the search variable and the array converts a string to lowercase letters.
       character.fullName.toLowerCase().includes(searchTerm.toLowerCase()) ||
       character.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       character.family.toLowerCase().includes(searchTerm.toLowerCase())
     );
   });
+  // display on the website
   characterContainer.innerHTML = createCards(filteredArray);
 };
 
+// variable for adding the checkbox and check if it meet the check box
 const addToCheckboxArray = (event) => {
   if (!checkedArray.includes(event.target.id)) {
     checkedArray.push(event.target.id);
@@ -56,6 +69,7 @@ const addToCheckboxArray = (event) => {
   }
 };
 
+// variable to filter by the check box
 const filterByCheckbox = (event) => {
   addToCheckboxArray(event);
   const filteredArrayByCheckbox = getFilteredArray(charactersArr, checkedArray);
@@ -66,6 +80,7 @@ const filterByCheckbox = (event) => {
   }
 };
 
+// variable for getting the filter array
 const getFilteredArray = (array, checkArray) => {
   const filteredArrayByCheckbox = array.filter((character) => {
     return (
@@ -79,12 +94,16 @@ const getFilteredArray = (array, checkArray) => {
 };
 //---------------------------Creation of Elements-------------------------//
 
+// variable for the function of creating the card from the array.
 const characterCards = createCards(charactersArr);
 
 //---------------------------Change Inital Inner HTML----------------------//
+// created the inner HTML for the creating card
 characterContainer.innerHTML = characterCards;
 
 //---------------------------Listeners-------------------------------------//
+// add an event listener for the check box
+
 searchInput.addEventListener("input", filterBySearch);
 checkboxes.forEach((checkbox) =>
   checkbox.addEventListener("change", filterByCheckbox)
