@@ -1,6 +1,6 @@
 //---------------------------Import from Data File-------------------------//
 
-import charactersArr from "./data/data.js";
+import charactersArr from "./Data/data";
 
 //---------------------------Dom Elements-------------------------//
 const characterContainer = document.querySelector(".character-container");
